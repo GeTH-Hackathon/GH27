@@ -20,6 +20,9 @@ const config: Config = {
   onBrokenAnchors: 'throw',
   i18n: {defaultLocale: 'en', locales: ['en']},
   headTags: [
+    {tagName: 'meta', attributes: {property: 'og:type', content: 'website'}},
+    {tagName: 'meta', attributes: {property: 'og:site_name', content: 'GeTH Hackathon 2027'}},
+    {tagName: 'meta', attributes: {property: 'og:image:alt', content: 'GeTH Hackathon 2027, Chiang Mai, 7–12 February 2027, over a barcode of 118 Thai genome projects'}},
     {tagName: 'meta', attributes: {property: 'og:image:width', content: '1200'}},
     {tagName: 'meta', attributes: {property: 'og:image:height', content: '630'}},
     {tagName: 'link', attributes: {rel: 'preconnect', href: 'https://fonts.googleapis.com'}},
@@ -40,12 +43,26 @@ const config: Config = {
         docs: false,
         blog: false,
         theme: {customCss: './src/css/custom.css'},
+        sitemap: {
+          lastmod: 'date',
+          changefreq: 'weekly',
+          priority: 0.5,
+          createSitemapItems: async ({defaultCreateSitemapItems, ...params}) =>
+            (await defaultCreateSitemapItems(params)).map((item) => ({
+              ...item,
+              priority: new URL(item.url).pathname === '/' ? 1 : item.url.includes('/data/') ? 0.7 : 0.3,
+            })),
+        },
       } satisfies Preset.Options,
     ],
   ],
   themeConfig: {
     // Link-preview card (Facebook, LinkedIn, X); regenerate with `node scripts/build-og.mjs`.
     image: 'img/og.png',
+    metadata: [
+      {name: 'keywords', content: 'GeTH Hackathon, Genomics Thailand, Thai genomes, whole genome sequencing, precision medicine, hackathon, Chiang Mai, bioinformatics, 2027'},
+      {name: 'theme-color', content: '#ff4a1c'},
+    ],
     // Light by default for every visitor; the navbar toggle switches to dark and remembers the choice.
     colorMode: {defaultMode: 'light', disableSwitch: false, respectPrefersColorScheme: false},
     navbar: {

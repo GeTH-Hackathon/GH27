@@ -13,6 +13,8 @@ export type EventInfo = {
   description: string;
   statusLine: string;
   dateRange: string;
+  startDate: string;
+  endDate: string;
   dateNote: string;
   venue: {name: string | null; city: string; country: string; airport: string};
   formUrl: string | null;
@@ -49,6 +51,9 @@ export const event: EventInfo = {
     '7–12 February 2027 @ Chiang Mai to Hack on 50k genomes to move genomic medicine in Thailand forward. Applications open November 2026.',
   statusLine: 'FEB 7–12 2027 \\ CHIANG MAI \\ 50K GENOMES',
   dateRange: '7–12 February 2027',
+  // ISO dates for structured data (search engines).
+  startDate: '2027-02-07',
+  endDate: '2027-02-12',
   dateNote: 'Sunday afternoon to Friday morning. Six days on site.',
   venue: {
     name: null,

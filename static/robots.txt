@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gh27.bat.or.th/sitemap.xml
