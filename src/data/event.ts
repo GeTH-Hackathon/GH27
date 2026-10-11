@@ -10,6 +10,7 @@ export type EventInfo = {
   name: string;
   brand: string;
   tagline: string;
+  description: string;
   statusLine: string;
   dateRange: string;
   dateNote: string;
@@ -43,6 +44,9 @@ export const event: EventInfo = {
   name: 'GeTH Hackathon 2027',
   brand: 'GeTH Hackathon',
   tagline: 'Unlocking 50k Thai Genomes for National Precision Medicine.',
+  // Meta and Open Graph description (Facebook shows roughly the first 200 characters).
+  description:
+    '7–12 February 2027 @ Chiang Mai to Hack on 50k genomes to move genomic medicine in Thailand forward. Applications open November 2026.',
   statusLine: 'FEB 7–12 2027 \\ CHIANG MAI \\ 50K GENOMES',
   dateRange: '7–12 February 2027',
   dateNote: 'Sunday afternoon to Friday morning. Six days on site.',
@@ -100,10 +104,10 @@ export const event: EventInfo = {
     {role: 'Organizer', name: 'Faculty of Medicine, Chiang Mai University', href: 'https://www.med.cmu.ac.th', logo: null},
     {role: 'Supported by', name: 'Health Systems Research Institute (HSRI)', href: 'https://www.hsri.or.th', logo: null},
     {role: 'Data partner', name: 'National Science and Technology Development Agency (NSTDA)', href: 'https://www.nstda.or.th', logo: null},
-    {role: 'Data partner', name: 'Genomics Thailand', href: 'https://data.genomicsthailand.com', logo: null},
+    {role: 'Data partner', name: 'Genomics Thailand', href: 'https://genomicsthailand.com', logo: null},
   ],
   links: [
     dataPortal,
-    {label: 'BioHackathon 2026', href: 'https://2026.biohackathon.org', note: 'The DBCLS event that inspired ours'},
+    {label: 'BioHackathon', href: 'https://biohackathon.org', note: 'The DBCLS event that inspired ours'},
   ],
 };

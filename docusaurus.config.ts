@@ -8,7 +8,7 @@ const baseUrl = process.env.BASE_URL ?? '/';
 
 const config: Config = {
   title: 'GeTH Hackathon 2027',
-  tagline: 'Unlocking 50,000 Thai genomes for national precision medicine.',
+  tagline: 'Unlocking 50k Thai human genomes for national precision medicine.',
   favicon: 'img/favicon.svg',
   future: {v4: true},
   url,
@@ -20,6 +20,8 @@ const config: Config = {
   onBrokenAnchors: 'throw',
   i18n: {defaultLocale: 'en', locales: ['en']},
   headTags: [
+    {tagName: 'meta', attributes: {property: 'og:image:width', content: '1200'}},
+    {tagName: 'meta', attributes: {property: 'og:image:height', content: '630'}},
     {tagName: 'link', attributes: {rel: 'preconnect', href: 'https://fonts.googleapis.com'}},
     {tagName: 'link', attributes: {rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous'}},
     {
@@ -42,6 +44,8 @@ const config: Config = {
     ],
   ],
   themeConfig: {
+    // Link-preview card (Facebook, LinkedIn, X); regenerate with `node scripts/build-og.mjs`.
+    image: 'img/og.png',
     // Light by default for every visitor; the navbar toggle switches to dark and remembers the choice.
     colorMode: {defaultMode: 'light', disableSwitch: false, respectPrefersColorScheme: false},
     navbar: {
