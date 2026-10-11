@@ -132,7 +132,7 @@ test('links section removed; its links live in the footer and open safely in a n
   assert.doesNotMatch(html, /id="links"/);
   const footer = html.slice(html.lastIndexOf('<footer'));
   assert.match(footer, /href="https:\/\/data\.genomicsthailand\.com"[^>]*target="_blank"[^>]*rel="noopener noreferrer"/);
-  assert.match(footer, /href="https:\/\/2026\.biohackathon\.org"/);
+  assert.match(footer, /href="https:\/\/biohackathon\.org"/);
   assert.match(footer, /href="\/terms\/"/);
   assert.match(footer, /href="\/tre-guidelines\/"/);
 });
