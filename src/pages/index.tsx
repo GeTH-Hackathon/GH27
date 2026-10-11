@@ -37,6 +37,9 @@ export default function Home() {
   return (
     <Layout title="Genomics hackathon, Chiang Mai 2027" description={event.description}>
       <Head>
+        <meta name="twitter:title" content="Genomics hackathon, Chiang Mai 2027 | GeTH Hackathon 2027" />
+        <meta name="twitter:description" content={event.description} />
+        <meta name="twitter:image:alt" content="GeTH Hackathon 2027, Chiang Mai, 7–12 February 2027, over a barcode of 118 Thai genome projects" />
         <script type="application/ld+json">{JSON.stringify(eventJsonLd)}</script>
       </Head>
       <main>
