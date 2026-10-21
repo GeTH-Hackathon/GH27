@@ -237,7 +237,7 @@ test('theme: navbar has a dark/light toggle and light is the default (device set
 test('theme: dark palette tokens exist in the built CSS', () => {
   const css = builtCss();
   const dark = css.match(/html\[data-theme=["']?dark["']?\]\{([^}]*)\}/g)?.join('') ?? '';
-  for (const token of ['--paper:#0a0a0a', '--ink:#f2f2f2', '--rule:#262626', '--text-2:#b0b0b0', '--panel-bg:#161616']) {
+  for (const token of ['--paper:#1b2026', '--ink:#eef0f2', '--rule:#333b44', '--text-2:#b9c0c7', '--panel-bg:#262d35']) {
     assert.ok(dark.replace(/\s/g, '').toLowerCase().includes(token), `missing ${token} in dark theme`);
   }
 });

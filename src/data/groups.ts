@@ -1,19 +1,20 @@
-// 'ink' follows the theme via CSS; on the always-dark Data panel it is drawn white.
+// Group colours are CSS tokens (src/css/custom.css), so they follow the light/dark theme.
+// 'ink' follows the theme; on the always-dark Data panel it is drawn in panel text.
 const INK = 'var(--ink)';
-const PAPER = '#ffffff';
+const PANEL_TEXT = 'var(--panel-text)';
 
-// One tint per disease group, drawn from accent / ink / mute.
+// One tint per disease group, from the GeTH Slate palette.
 export const groupColors: Record<string, string> = {
-  'Rare Diseases': '#ff4a1c',
+  'Rare Diseases': 'var(--group-rare)',
   NCD: INK,
-  Cancer: '#9a9a9a',
-  Pharmacogenomics: '#ff9a7f',
-  'Infectious Diseases': '#4d4d4d',
-  Popgen: '#ffc8b8',
-  'Non-Rare & Non-Cancer': '#cfcfcf',
+  Cancer: 'var(--group-cancer)',
+  Pharmacogenomics: 'var(--group-pgx)',
+  'Infectious Diseases': 'var(--group-infectious)',
+  Popgen: 'var(--group-popgen)',
+  'Non-Rare & Non-Cancer': 'var(--group-other)',
 };
 
 export function groupColor(group: string, onDark = false): string {
-  const c = groupColors[group] ?? '#9a9a9a';
-  return onDark && c === INK ? PAPER : c;
+  const c = groupColors[group] ?? 'var(--group-other)';
+  return onDark && c === INK ? PANEL_TEXT : c;
 }

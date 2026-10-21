@@ -61,7 +61,7 @@ const config: Config = {
     image: 'img/og.png',
     metadata: [
       {name: 'keywords', content: 'GeTH Hackathon, Genomics Thailand, Thai genomes, whole genome sequencing, precision medicine, hackathon, Chiang Mai, bioinformatics, 2027'},
-      {name: 'theme-color', content: '#ff4a1c'},
+      {name: 'theme-color', content: '#ff5722'},
     ],
     // Light by default for every visitor; the navbar toggle switches to dark and remembers the choice.
     colorMode: {defaultMode: 'light', disableSwitch: false, respectPrefersColorScheme: false},

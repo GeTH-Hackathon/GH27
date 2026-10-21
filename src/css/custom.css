@@ -1,24 +1,33 @@
-/* GeTH Swiss design tokens. Colours: accent / ink / paper / mute / rule (+ derived tokens below). */
+/* GeTH Slate design tokens (the "GeTH Slate" design system). Colours: accent / ink / paper / mute / rule (+ derived tokens below). */
 :root {
-  --accent: #ff4a1c;
-  --ink: #0a0a0a;
-  --paper: #ffffff;
-  --mute: #767676; /* 4.5:1 on white */
-  --rule: #e6e6e6;
-  --text-2: #555555; /* secondary text */
-  --on-accent: #0a0a0a; /* text on accent fills, in both themes */
+  --accent: #ff5722; /* fills only: buttons, pills, underlines, focus */
+  --accent-text: #ee4d1b; /* orange as type, 24px+ only: 3.4:1 on paper */
+  --accent-2: #76a9aa; /* teal-grey, decoration only (2.4:1 on paper) */
+  --ink: #303841;
+  --paper: #f5f5f5;
+  --mute: #5e666e; /* 5.3:1 on paper */
+  --rule: #e0e0e0;
+  --text-2: #4f5862; /* secondary text */
+  --on-accent: #161a1f; /* text on accent fills: 5.5:1 (white fails) */
   /* The Data panel and footer are always dark surfaces. */
-  --panel-bg: #0a0a0a;
+  --panel-bg: #303841;
   --panel-edge: transparent;
-  --panel-text: #ffffff;
-  --panel-note: #d0d0d0;
-  --panel-ghost: #6a6a6a;
-  --panel-label: #9a9a9a;
-  --panel-track: #1f1f1f;
-  --footer-bg: #0a0a0a;
-  --footer-text: #ffffff;
-  --footer-rule: #2a2a2a;
+  --panel-text: #f5f5f5;
+  --panel-note: #cfd6dc;
+  --panel-ghost: #6f7b88;
+  --panel-label: #a9b2ba;
+  --panel-track: #262d35;
+  --footer-bg: #303841;
+  --footer-text: #f5f5f5;
+  --footer-rule: #56616c;
   --footer-edge: transparent;
+  /* Disease groups (src/data/groups.ts). NCD follows ink; on the panel it is panel-text. */
+  --group-rare: #ff5722;
+  --group-cancer: #76a9aa;
+  --group-pgx: #ff9e80;
+  --group-infectious: #5e6e78;
+  --group-popgen: #b5d3d4;
+  --group-other: #c9cdd1;
   --radius: 24px;
   --gutter: 16px;
   --maxw: 1440px;
@@ -33,13 +42,13 @@
   --ifm-heading-color: var(--ink);
   --ifm-link-color: var(--ink);
   --ifm-link-hover-color: var(--ink);
-  --ifm-color-primary: #0a0a0a;
-  --ifm-color-primary-dark: #000000;
-  --ifm-color-primary-darker: #000000;
-  --ifm-color-primary-darkest: #000000;
-  --ifm-color-primary-light: #262626;
-  --ifm-color-primary-lighter: #333333;
-  --ifm-color-primary-lightest: #4d4d4d;
+  --ifm-color-primary: #303841;
+  --ifm-color-primary-dark: #2b323a;
+  --ifm-color-primary-darker: #282f37;
+  --ifm-color-primary-darkest: #21272d;
+  --ifm-color-primary-light: #353e48;
+  --ifm-color-primary-lighter: #38414b;
+  --ifm-color-primary-lightest: #414b56;
   --ifm-navbar-background-color: var(--paper);
   --ifm-navbar-shadow: none;
   --ifm-navbar-link-color: var(--ink);
@@ -47,18 +56,25 @@
   --ifm-footer-background-color: var(--footer-bg);
 }
 
-/* Dark theme: same Swiss rules, inverted. html[] beats Infima's own dark selector. */
+/* Dark theme: same Swiss rules, inverted. html[] beats Infima's own dark selector.
+   The panel sits one step above paper and the footer one step below, so both still read as surfaces. */
 html[data-theme='dark'] {
-  --paper: #0a0a0a;
-  --ink: #f2f2f2;
-  --mute: #8a8a8a;
-  --rule: #262626;
-  --text-2: #b0b0b0;
-  --panel-bg: #161616;
-  --panel-edge: #262626;
-  --panel-track: #2a2a2a;
-  --footer-rule: #262626;
-  --footer-edge: #262626;
+  --accent-text: #ff6a3d;
+  --paper: #1b2026;
+  --ink: #eef0f2;
+  --mute: #98a3ad;
+  --rule: #333b44;
+  --text-2: #b9c0c7;
+  --on-accent: #0f1216;
+  --panel-bg: #262d35;
+  --panel-edge: #46505c;
+  --panel-note: #c9d0d6;
+  --panel-track: #1b2026;
+  --footer-bg: #13171b;
+  --footer-rule: #333b44;
+  --footer-edge: #333b44;
+  --group-infectious: #8a97a3;
+  --group-other: #5e6873;
 
   --ifm-background-color: var(--paper);
   --ifm-background-surface-color: var(--paper);
@@ -66,13 +82,13 @@ html[data-theme='dark'] {
   --ifm-heading-color: var(--ink);
   --ifm-link-color: var(--ink);
   --ifm-link-hover-color: var(--ink);
-  --ifm-color-primary: #f2f2f2;
-  --ifm-color-primary-dark: #e0e0e0;
-  --ifm-color-primary-darker: #d4d4d4;
-  --ifm-color-primary-darkest: #b0b0b0;
-  --ifm-color-primary-light: #f5f5f5;
-  --ifm-color-primary-lighter: #f8f8f8;
-  --ifm-color-primary-lightest: #ffffff;
+  --ifm-color-primary: #eef0f2;
+  --ifm-color-primary-dark: #d6dade;
+  --ifm-color-primary-darker: #cad0d5;
+  --ifm-color-primary-darkest: #a6b0b9;
+  --ifm-color-primary-light: #f1f3f4;
+  --ifm-color-primary-lighter: #f3f4f5;
+  --ifm-color-primary-lightest: #f8f9fa;
   --ifm-navbar-background-color: var(--paper);
   --ifm-navbar-link-color: var(--ink);
   --ifm-navbar-link-hover-color: var(--ink);
@@ -96,7 +112,7 @@ a:hover { text-decoration-color: currentColor; }
 .label { font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.4; }
 
 .slash-heading { font-size: clamp(2.5rem, 7vw, 5.5rem); font-weight: 500; letter-spacing: -0.05em; line-height: 0.95; margin: 0 0 clamp(32px, 5vw, 64px); }
-.slash-heading .slash { color: var(--mute); font-weight: 400; }
+.slash-heading .slash { color: var(--accent-2); font-weight: 400; }
 
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border: 0; border-radius: 999px; background: var(--accent); color: var(--on-accent); font: 600 15px/1.2 var(--font); text-decoration: none; cursor: pointer; }
 .btn:hover { background: var(--ink); color: var(--paper); text-decoration: none; }
@@ -115,7 +131,7 @@ a:hover { text-decoration-color: currentColor; }
 
 .navbar { border-bottom: 1px solid var(--rule); }
 .navbar__brand { text-decoration: none; }
-.navbar__title { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.04em; color: var(--accent); }
+.navbar__title { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.04em; color: var(--accent-text); }
 .navbar__link { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; }
 .navbar__link--active { color: var(--ink); }
 .navbar-apply { background: var(--accent); color: var(--on-accent) !important; border-radius: 999px; padding: 6px 16px; margin-left: 8px; }

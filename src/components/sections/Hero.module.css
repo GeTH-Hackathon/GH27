@@ -5,7 +5,7 @@
 .title { margin: 0; line-height: 0.8; overflow-x: clip; }
 /* "GeTH Hackathon" measures ~6.83em ("Hackathon" ~4.39em) in Inter Tight 600 at -0.06em tracking.
    Phones: two lines sized to "Hackathon"; desktop: one line. Divisors leave ~7% slack for scrollbars. */
-.wordmark { display: block; color: var(--accent); font-size: min(calc((100vw - 2 * var(--gutter)) / 4.7), calc((var(--maxw) - 2 * var(--gutter)) / 4.7)); white-space: nowrap; font-weight: 600; letter-spacing: -0.06em; line-height: 0.85; padding-bottom: 0.08em; }
+.wordmark { display: block; color: var(--accent-text); font-size: min(calc((100vw - 2 * var(--gutter)) / 4.7), calc((var(--maxw) - 2 * var(--gutter)) / 4.7)); white-space: nowrap; font-weight: 600; letter-spacing: -0.06em; line-height: 0.85; padding-bottom: 0.08em; }
 .line { display: block; overflow: clip; padding: 0.05em 0.04em; margin: -0.05em -0.04em; }
 .lineInner { display: inline-block; }
 :global(html[data-motion-intro]) .hero [data-intro] { opacity: 0; }
