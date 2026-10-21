@@ -1,0 +1,439 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-26T11:59:12.652Z",
+  "title": "Design System: GeTH Hackathon 2027",
+  "extensions": {
+    "colorMeta": {
+      "chiang-mai-vermilion": {
+        "role": "primary",
+        "displayName": "Chiang Mai Vermilion",
+        "canonical": "oklch(66.6% 0.224 34.3)",
+        "tonalRamp": [
+          "#2f0000",
+          "#5c0000",
+          "#8c0000",
+          "#be1700",
+          "#ee4316",
+          "#ff7856",
+          "#ffa584",
+          "#ffc8aa"
+        ]
+      },
+      "press-black": {
+        "role": "neutral",
+        "displayName": "Press Black",
+        "canonical": "oklch(14.5% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "paper-white": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "plate-grey": {
+        "role": "neutral",
+        "displayName": "Plate Grey",
+        "canonical": "oklch(56.6% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(92.5% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "caption-grey": {
+        "role": "neutral",
+        "displayName": "Caption Grey",
+        "canonical": "oklch(45.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "panel-black": {
+        "role": "neutral",
+        "displayName": "Panel Black",
+        "canonical": "oklch(14.5% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "panel-note": {
+        "role": "neutral",
+        "displayName": "Panel Note",
+        "canonical": "oklch(85.8% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "panel-ghost": {
+        "role": "neutral",
+        "displayName": "Panel Ghost",
+        "canonical": "oklch(52.4% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "panel-label": {
+        "role": "neutral",
+        "displayName": "Panel Label",
+        "canonical": "oklch(68.6% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "panel-track": {
+        "role": "neutral",
+        "displayName": "Panel Track",
+        "canonical": "oklch(23.9% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "footer-rule": {
+        "role": "neutral",
+        "displayName": "Footer Rule",
+        "canonical": "oklch(28.5% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "group-salmon": {
+        "role": "tertiary",
+        "displayName": "Group Salmon (Pharmacogenomics)",
+        "canonical": "oklch(78.5% 0.128 35.8)",
+        "tonalRamp": [
+          "#2f0000",
+          "#540000",
+          "#7a2207",
+          "#a2462e",
+          "#ca6a51",
+          "#f38f74",
+          "#ffb296",
+          "#ffcfb3"
+        ]
+      },
+      "group-blush": {
+        "role": "tertiary",
+        "displayName": "Group Blush (Popgen)",
+        "canonical": "oklch(87.7% 0.067 36.8)",
+        "tonalRamp": [
+          "#200000",
+          "#41180d",
+          "#64372b",
+          "#88584b",
+          "#ad7b6d",
+          "#d4a090",
+          "#f9c2b3",
+          "#ffe0cf"
+        ]
+      },
+      "group-graphite": {
+        "role": "tertiary",
+        "displayName": "Group Graphite (Infectious Diseases)",
+        "canonical": "oklch(42.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "group-silver": {
+        "role": "tertiary",
+        "displayName": "Group Silver (Non-Rare & Non-Cancer)",
+        "canonical": "oklch(85.5% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "group-grey": {
+        "role": "tertiary",
+        "displayName": "Group Grey (Cancer)",
+        "canonical": "oklch(68.6% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero wordmark \"GeTH Hackathon\" and the footer sign-off only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Slash section headings: \"/ Sentence case.\""
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Objective lines, dates, organiser names, link rows, card titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Prose; objectives intro capped at 68ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase metadata of four words or fewer."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "marquee-scroll",
+        "value": "translateX(-50%) 40s linear infinite",
+        "purpose": "Data-type marquee; paused on hover/focus-within; none under prefers-reduced-motion."
+      },
+      {
+        "name": "map-highlight",
+        "value": "opacity 150ms",
+        "purpose": "Dataset-map focus dimming; disabled under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "tablet",
+        "value": "768px"
+      },
+      {
+        "name": "desktop",
+        "value": "997px"
+      },
+      {
+        "name": "content-max",
+        "value": "1440px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Apply action; the only filled vermilion control.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Apply now ↗</a>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:999px;background:#ff4a1c;color:#0a0a0a;font:600 15px/1.2 'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;text-decoration:none}.ds-btn-primary:hover{background:#0a0a0a;color:#fff}.ds-btn-primary:focus-visible{outline:3px solid #ff4a1c;outline-offset:3px}"
+    },
+    {
+      "name": "Disabled Button",
+      "kind": "button",
+      "refersTo": "button-disabled",
+      "description": "Shown when no application form URL is set.",
+      "html": "<button class=\"ds-btn-disabled\" disabled>Applications open November 2026</button>",
+      "css": ".ds-btn-disabled{padding:14px 24px;border:0;border-radius:999px;background:#e6e6e6;color:#0a0a0a;font:600 15px/1.2 'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;cursor:not-allowed}"
+    },
+    {
+      "name": "Topic Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Dataset-map topic filter with count; aria-pressed toggles.",
+      "html": "<button class=\"ds-chip\" aria-pressed=\"false\">colorectal <span>7</span></button><button class=\"ds-chip\" aria-pressed=\"true\">diabetes <span>7</span></button>",
+      "css": ".ds-chip{font:500 13px/1 'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;color:#0a0a0a;background:transparent;border:1px solid #e6e6e6;border-radius:999px;padding:8px 12px;margin:0 6px 6px 0;cursor:pointer}.ds-chip span{opacity:.65}.ds-chip:hover{border-color:#0a0a0a}.ds-chip[aria-pressed=true]{background:#ff4a1c;border-color:#ff4a1c}.ds-chip:focus-visible{outline:3px solid #ff4a1c;outline-offset:3px}"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": null,
+      "description": "Underline-only project search on /data.",
+      "html": "<label class=\"ds-label\" for=\"ds-q\">Search projects</label><input id=\"ds-q\" class=\"ds-input\" type=\"search\" placeholder=\"e.g. tuberculosis, 64-1\">",
+      "css": ".ds-label{display:block;font:500 11px/1.4 'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}.ds-input{width:100%;max-width:36rem;border:0;border-bottom:2px solid #0a0a0a;border-radius:0;background:transparent;padding:8px 0;font:500 1.5rem/1.2 'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:-.02em;color:#0a0a0a}.ds-input::placeholder{color:#767676}.ds-input:focus{outline:none;border-bottom-color:#ff4a1c}"
+    },
+    {
+      "name": "Slash Heading",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Every section heading: grey slash, sentence case, full stop.",
+      "html": "<h2 class=\"ds-slash\"><span>/ </span>Important dates.</h2>",
+      "css": ".ds-slash{font:500 clamp(2.5rem,7vw,5.5rem)/.95 'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:-.05em;color:#0a0a0a;margin:0}.ds-slash span{color:#767676;font-weight:400}"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": "nav-apply",
+      "description": "Vermilion title, uppercase links, Apply pill.",
+      "html": "<nav class=\"ds-nav\"><b>GeTH Hackathon</b><a href=\"#\">Objectives</a><a href=\"#\">Data</a><a href=\"#\">Schedule</a><a class=\"ds-nav-apply\" href=\"#\">Apply</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:24px;padding:12px 16px;border-bottom:1px solid #e6e6e6;background:#fff;font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif}.ds-nav b{color:#ff4a1c;font-size:1.35rem;letter-spacing:-.04em;margin-right:8px}.ds-nav a{font-size:12px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:#0a0a0a;text-decoration:none}.ds-nav .ds-nav-apply{margin-left:auto;background:#ff4a1c;color:#0a0a0a;border-radius:999px;padding:6px 16px}.ds-nav .ds-nav-apply:hover{background:#0a0a0a;color:#fff}"
+    },
+    {
+      "name": "Data Panel",
+      "kind": "card",
+      "refersTo": "panel-data",
+      "description": "The one always-dark plate: ghost number, counters, bars.",
+      "html": "<section class=\"ds-panel\"><h2><span>/ </span>Genomics data.</h2><p class=\"ds-ghost\">(51,461)</p><div class=\"ds-bar\"><span>Rare Diseases</span><i style=\"width:100%\"></i><b>18,483</b></div><div class=\"ds-bar\"><span>NCD</span><i style=\"width:79%\"></i><b>14,550</b></div></section>",
+      "css": ".ds-panel{background:#0a0a0a;color:#fff;border-radius:24px;padding:40px 32px;font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif}.ds-panel h2{font:500 3rem/.95 'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:-.05em;margin:0 0 16px}.ds-panel h2 span{color:#767676}.ds-ghost{color:#6a6a6a;font-size:5rem;font-weight:500;letter-spacing:-.05em;margin:0 0 24px}.ds-bar{display:grid;grid-template-columns:10rem 1fr 4rem;gap:12px;align-items:center;font-size:14px;margin-bottom:10px}.ds-bar i{display:block;height:10px;border-radius:999px;background:#ff4a1c}.ds-bar b{font-weight:400;text-align:right}"
+    },
+    {
+      "name": "TBA Tag",
+      "kind": "chip",
+      "refersTo": "tag-tba",
+      "description": "Marks facts that are not final.",
+      "html": "<span class=\"ds-tba\">TBA</span>",
+      "css": ".ds-tba{display:inline-block;padding:1px 6px;border:1px solid #ff4a1c;border-radius:4px;font:600 10px/1.5 'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#0a0a0a}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Genome Poster",
+    "overview": "The site is a Swiss scientific poster pinned up for a hackathon. A strict 1440px grid, black type on white, and one vermilion signal carry everything. The only imagery is the dataset itself: the genome barcode and the dataset map. Scale does the persuading; everything around those moments stays quiet.",
+    "keyCharacteristics": [
+      "One family (Inter Tight) carries every role through size and weight contrast.",
+      "One accent (Chiang Mai Vermilion) for the wordmark, Apply actions, active states and cross-group links.",
+      "Flat surfaces; depth comes from the always-dark Data panel and footer, never from shadows.",
+      "Hairline-ruled lists instead of cards wherever a list will do.",
+      "Light is the default theme; dark is an inversion from the same tokens, chosen by the visitor."
+    ],
+    "rules": [
+      {
+        "name": "The One Ink Rule",
+        "section": "colors",
+        "body": "Vermilion is the only hue in the interface. Group tints exist only inside data marks; nothing else on the page may introduce a colour."
+      },
+      {
+        "name": "The Token-Only Rule",
+        "section": "colors",
+        "body": "Components never hard-code a grey. Every colour is a CSS custom property defined once for light and once for dark; a site test fails on known literals."
+      },
+      {
+        "name": "The Always-Dark Rule",
+        "section": "colors",
+        "body": "The Data panel and the footer are dark surfaces in both themes. Text on them uses the panel and footer tokens, never --ink / --paper."
+      },
+      {
+        "name": "The Slash Rule",
+        "section": "typography",
+        "body": "Every section heading is \"/ Sentence case.\": grey slash, capital first letter, full stop. No lowercase-forced headings, no eyebrow above them."
+      },
+      {
+        "name": "The Label Rule",
+        "section": "typography",
+        "body": "Uppercase is reserved for labels of four words or fewer. Never set a sentence in the label style."
+      },
+      {
+        "name": "The No-Shadow Rule",
+        "section": "elevation",
+        "body": "box-shadow is prohibited. If an element needs separation, use a Hairline border or move it onto a dark surface."
+      }
+    ],
+    "dos": [
+      "Do let the data be the image: use the genome barcode or dataset map before reaching for any illustration or photo.",
+      "Do keep Chiang Mai Vermilion (#ff4a1c) to display type, fills and data marks; put Press Black (#0a0a0a) text on every vermilion fill.",
+      "Do set section headings as `/ Sentence case.` with the Plate Grey slash.",
+      "Do separate content with Hairline rules (#e6e6e6) and hairline-ruled lists before considering cards.",
+      "Do define every colour as a token for both themes and check AA contrast in light and dark.",
+      "Do give every animation a `prefers-reduced-motion` alternative (the marquee stops, and pauses on hover or focus)."
+    ],
+    "donts": [
+      "Don't build a startup SaaS landing page: no hero-metric template, no glassmorphism, no identical icon-card grids, no gradient text, no buzzword copy.",
+      "Don't add box-shadows, blurs or glass surfaces; the system is flat.",
+      "Don't introduce a second accent hue, or use disease-group tints outside data marks.",
+      "Don't hard-code greys in components; use `--text-2`, `--mute`, `--rule` and the panel/footer tokens.",
+      "Don't put an uppercase eyebrow above section headings; the slash is the only heading ornament.",
+      "Don't set small text in vermilion on white.",
+      "Don't show individual-level data in any visual; every mark is a project or group aggregate."
+    ]
+  }
+}
