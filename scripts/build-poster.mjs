@@ -24,6 +24,7 @@ const bars = order
 const labels = columns
   .map((c) => `<div class="col"><b>${kfmt(c.total)}</b><span>${c.group}</span></div>`)
   .join('');
+const logo = readFileSync(rel('./../poster/logo-gh.svg'), 'utf8').replace(/ width="256" height="256"/, '').replace('GH27 b-gh', 'GeTH Hackathon');
 const qr = readFileSync(rel('./../poster/qr.svg'), 'utf8').replace(/<\?xml[^>]*\?>/, '');
 const short = (n) => n.replace(/^.*\((.*)\)$/, '$1');
 const by = (role) => event.partners.filter((p) => p.role === role).map((p) => short(p.name)).join(', ');
@@ -40,6 +41,8 @@ body{font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;color
 @media screen{.page{margin:10mm auto}}
 .top{display:flex;justify-content:space-between;font-size:11pt;font-weight:500;letter-spacing:-.01em}
 .top span:last-child{color:#555}
+.brand{display:flex;align-items:center;gap:3.5mm;color:#0a0a0a!important}
+.brand svg{height:13mm;width:13mm;display:block}
 h1{font-size:37.5mm;font-weight:600;line-height:.85;letter-spacing:-.06em;color:#ff4a1c;margin:8mm 0 0 -2mm}
 .when{display:flex;justify-content:space-between;align-items:flex-end;margin-top:9mm;padding-top:5mm;border-top:.35mm solid #0a0a0a}
 .when .d{font-size:21pt;font-weight:500;letter-spacing:-.03em;line-height:1.1}
@@ -67,7 +70,7 @@ h1{font-size:37.5mm;font-weight:600;line-height:.85;letter-spacing:-.06em;color:
 .who b{color:#0a0a0a;font-weight:500}
 </style></head><body>
 <div class="page">
-  <div class="top"><span>Genomics Thailand</span><span>Organized by ${organizer}</span></div>
+  <div class="top"><span class="brand">${logo}Genomics Thailand</span><span>Organized by ${organizer}</span></div>
   <h1>GeTH<br>Hackathon</h1>
   <div class="when"><div class="d">${event.dateRange}</div><div class="c">${event.venue.city}, ${event.venue.country}</div></div>
   <p class="tag">${event.tagline}</p>
