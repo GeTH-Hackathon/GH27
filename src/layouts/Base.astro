@@ -1,0 +1,66 @@
+---
+import '@fontsource/inter-tight/400.css';
+import '@fontsource/inter-tight/500.css';
+import '@fontsource/inter-tight/600.css';
+import '../css/base.css';
+import '../css/custom.css';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer';
+import {url} from '../lib/url';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const SITE = 'GeTH Hackathon 2027';
+const IMAGE_ALT = 'GeTH Hackathon 2027, Chiang Mai, 7–12 February 2027, over a barcode of 118 Thai genome projects';
+const {title, description} = Astro.props;
+const fullTitle = `${title} | ${SITE}`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+// Link-preview card (Facebook, LinkedIn, X); regenerate with `node scripts/build-og.mjs`.
+const image = new URL(url('/img/og.png'), Astro.site).href;
+---
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={url('/img/favicon.svg')} type="image/svg+xml" />
+    <link rel="sitemap" href={url('/sitemap-index.xml')} />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="keywords" content="GeTH Hackathon, Genomics Thailand, Thai genomes, whole genome sequencing, precision medicine, hackathon, Chiang Mai, bioinformatics, 2027" />
+    <meta name="theme-color" content="#ff5722" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE} />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content={IMAGE_ALT} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content={IMAGE_ALT} />
+    <slot name="head" />
+    <!-- Light by default for every visitor; the toggle switches to dark and remembers the choice on this device only. -->
+    <script is:inline>(function(){var t=null;try{t=localStorage.getItem('theme')}catch(e){}document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light')})();</script>
+    <!-- Hides the hero parts only while its intro is about to run; removed by the intro, or after 1.5s regardless. -->
+    <script is:inline>(function(){try{if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){var d=document.documentElement;d.setAttribute('data-motion-intro','');setTimeout(function(){d.removeAttribute('data-motion-intro')},1500)}}catch(e){}})();</script>
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#content">Skip to main content</a>
+    <Navbar />
+    <div id="content" tabindex="-1">
+      <slot />
+    </div>
+    <Footer />
+  </body>
+</html>

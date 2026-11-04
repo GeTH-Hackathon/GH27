@@ -1,6 +1,8 @@
 # GH27: GeTH Hackathon 2027 website
 
-Static site for **GeTH Hackathon 2027** (Genomics Thailand Hackathon, 7–12 February 2027, Chiang Mai). It is built with [Docusaurus](https://docusaurus.io) and deployed to GitHub Pages.
+Static site for **GeTH Hackathon 2027** (Genomics Thailand Hackathon, 7–12 February 2027, Chiang Mai). It is built with [Astro](https://astro.build) as static HTML and deployed to GitHub Pages. It needs Node 22.23.4 or newer.
+
+Privacy and security rules for this site and the planned application and review portal are in [`docs/security-privacy.md`](docs/security-privacy.md).
 
 ## Develop
 
@@ -17,7 +19,7 @@ npm run typecheck
 
 - **Dates, venue, Google Form URL, contact, partners, links:** edit `src/data/event.ts` only. Setting `formUrl` turns the disabled Apply button into a live link. A `null` value or `exact: false` shows a TBA tag.
 - **Schedule:** `src/data/schedule.ts`.
-- **Genome counts:** replace `data/wgs_projects.tsv` (tab-separated, header `Project ID	Type	Group	Project Name	WGSs`). The build fails with a line number if a row is malformed. The tests pin the current totals (51,461 WGSs, 118 projects, 7 groups), so after a data refresh update the expected numbers in `scripts/build-data.test.mjs` ("real file" test) and `scripts/site.test.mjs` (`(51,461)`, `118`, group names). Also update the "50K" and "50,000" copy in `src/data/event.ts` and `docusaurus.config.ts` if it changes, and add any new disease group to `src/data/groups.ts` (unknown groups are shown in grey).
+- **Genome counts:** replace `data/wgs_projects.tsv` (tab-separated, header `Project ID	Type	Group	Project Name	WGSs`). The build fails with a line number if a row is malformed. The tests pin the current totals (51,461 WGSs, 118 projects, 7 groups), so after a data refresh update the expected numbers in `scripts/build-data.test.mjs` ("real file" test) and `scripts/site.test.mjs` (`(51,461)`, `118`, group names). Also update the "50K" and "50,000" copy in `src/data/event.ts` and `src/layouts/Base.astro` if it changes, and add any new disease group to `src/data/groups.ts` (unknown groups are shown in grey).
 - **Logos:** put the files in `static/img/logos/` and set `logo: '/img/logos/<file>'` on the partner in `event.ts`.
 - **Terms & Conditions / TRE guidelines:** edit `src/pages/terms.md` and `src/pages/tre-guidelines.md`.
 

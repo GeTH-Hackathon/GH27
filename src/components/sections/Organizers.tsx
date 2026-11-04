@@ -2,7 +2,7 @@ import {useAnchor} from '@site/src/lib/useAnchor';
 import {useRef} from 'react';
 import {useMotionScene} from '@site/src/motion/useMotionScene';
 import {reveal} from '@site/src/motion/scenes/reveal';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import {url} from '@site/src/lib/url';
 import SlashHeading from '@site/src/components/ui/SlashHeading';
 import {event, type Partner, type PartnerRole} from '@site/src/data/event';
 import styles from './Organizers.module.css';
@@ -14,7 +14,7 @@ const ROLES: {role: PartnerRole; plural: string}[] = [
 ];
 
 function PartnerMark({partner}: {partner: Partner}) {
-  const logoUrl = useBaseUrl(partner.logo ?? '/');
+  const logoUrl = url(partner.logo ?? '/');
   const mark = partner.logo ? (
     <img src={logoUrl} alt={partner.name} className={styles.logo} />
   ) : (

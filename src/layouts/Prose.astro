@@ -1,0 +1,21 @@
+---
+import Base from './Base.astro';
+
+// Markdown pages: text column on the left, contents list on the right from desktop width.
+const {frontmatter, headings = []} = Astro.props;
+const contents = headings.filter((h: {depth: number}) => h.depth === 2);
+---
+<Base title={frontmatter.title} description={frontmatter.description}>
+  <main class="prose container-swiss">
+    <div class="prose__text">
+      <slot />
+    </div>
+    {contents.length > 0 && (
+      <nav class="prose__contents" aria-label="On this page">
+        <ul>
+          {contents.map((h: {slug: string; text: string}) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+        </ul>
+      </nav>
+    )}
+  </main>
+</Base>

@@ -1,13 +1,14 @@
 ---
+layout: ../layouts/Prose.astro
 title: Terms & Conditions and Code of Conduct
 description: Confidentiality, data-security and conduct rules for GeTH Hackathon 2027 participants.
 ---
 
-<h1 className="slash-heading"><span className="slash" aria-hidden="true">/ </span>Terms &amp; conditions.</h1>
+<h1 class="slash-heading"><span class="slash" aria-hidden="true">/ </span>Terms &amp; conditions.</h1>
 
 **Terms & Conditions and Code of Conduct · GeTH Hackathon 2027**
 
-<p className="label">Last updated: 26 September 2026</p>
+<p class="label">Last updated: 26 September 2026</p>
 
 These terms apply to everyone taking part in GeTH Hackathon 2027: participants, mentors and organisers. They apply from acceptance of your application until the project closes. By accepting a place, you agree to them.
 
@@ -41,4 +42,4 @@ The organisers may revoke TRE access or remove a participant who breaches these 
 
 The organisers may update these terms before the event, and participants will be notified of changes. Questions: contact to be announced.
 
-[Back to how to apply](/#apply)
+[Back to how to apply](../#apply)

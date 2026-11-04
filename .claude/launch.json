@@ -2,10 +2,24 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "docusaurus-dev",
+      "name": "astro-dev",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["start", "--", "--no-open"],
+      "runtimeArgs": [
+        "start"
+      ],
       "port": 3000
+    },
+    {
+      "name": "build-preview",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4321",
+        "--directory",
+        "build"
+      ],
+      "port": 4321
     }
   ]
 }

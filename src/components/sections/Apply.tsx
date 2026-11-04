@@ -2,7 +2,7 @@ import {useRef} from 'react';
 import {useMotionScene} from '@site/src/motion/useMotionScene';
 import {reveal} from '@site/src/motion/scenes/reveal';
 import {useAnchor} from '@site/src/lib/useAnchor';
-import Link from '@docusaurus/Link';
+import Link from '@site/src/components/ui/Link';
 import SlashHeading from '@site/src/components/ui/SlashHeading';
 import ApplyCta from '@site/src/components/ui/ApplyCta';
 import {event} from '@site/src/data/event';
