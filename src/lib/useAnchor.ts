@@ -1,7 +1,4 @@
-import useBrokenLinks from '@docusaurus/useBrokenLinks';
-
-// Registers a section id with Docusaurus' broken-anchor checker (onBrokenAnchors: 'throw').
+// Marks a section id that links point at. scripts/site.test.mjs checks that every #anchor link resolves.
 export function useAnchor(id: string): string {
-  useBrokenLinks().collectAnchor(id);
   return id;
 }

@@ -1,0 +1,51 @@
+/* Element defaults and page chrome. Colours and type come from the tokens in custom.css. */
+*, ::before, ::after { box-sizing: border-box; }
+html { -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 60px; }
+body { margin: 0; font: 400 17px/1.5 var(--font); }
+h1, h2, h3, h4, h5, h6 { margin: 0 0 1rem; font-weight: 700; line-height: 1.25; }
+p, ul, ol, dl, table, figure { margin: 0 0 1.25rem; }
+ul, ol { padding-left: 2rem; }
+dd { margin: 0; }
+img, svg { max-width: 100%; }
+img { height: auto; }
+button, input, select, textarea { font: inherit; color: inherit; }
+a { color: inherit; }
+table { border-collapse: collapse; }
+th, td { padding: 0.75rem; text-align: left; }
+[tabindex='-1']:focus { outline: none; }
+
+.skip-link { position: absolute; left: 8px; top: -100px; z-index: 300; padding: 8px 16px; background: var(--paper); color: var(--ink); }
+.skip-link:focus { top: 8px; }
+
+/* Navbar: sticky bar; on phones the section links drop down from the menu button. */
+.navbar { position: sticky; top: 0; z-index: 200; height: 60px; background: var(--paper); }
+.navbar__inner { display: flex; align-items: center; gap: 8px; height: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+.navbar__brand { margin-right: 16px; white-space: nowrap; }
+.navbar__menu { display: flex; align-items: center; flex: 1; }
+.navbar__end { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+.navbar__item { padding: 4px 12px; }
+.navbar__icon { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; color: var(--ink); cursor: pointer; }
+.navbar__icon:hover { background: var(--rule); }
+html[data-theme='dark'] .icon-moon, html:not([data-theme='dark']) .icon-sun { display: none; }
+.navbar__toggle { display: none; }
+@media (max-width: 996px) {
+  .navbar__toggle { display: inline-flex; }
+  .navbar__menu { display: none; position: absolute; top: 60px; left: 0; right: 0; flex-direction: column; align-items: stretch; padding: 8px var(--gutter) 16px; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .navbar__menu[data-open] { display: flex; }
+  .navbar__menu .navbar__link { padding: 12px 0; font-size: 14px; }
+}
+
+/* Markdown pages (terms, TRE guidelines). */
+.prose { display: grid; grid-template-columns: minmax(0, 1fr); gap: 48px; padding-top: clamp(32px, 6vw, 64px); padding-bottom: clamp(64px, 10vw, 112px); }
+.prose__text { max-width: 900px; }
+.prose__text h2 { margin-top: 2.5rem; font-size: 1.5rem; }
+.prose__text li + li { margin-top: 0.5rem; }
+.prose__contents { display: none; }
+@media (min-width: 997px) {
+  .prose { grid-template-columns: minmax(0, 3fr) minmax(180px, 1fr); }
+  .prose__contents { display: block; position: sticky; top: 84px; align-self: start; border-left: 1px solid var(--rule); font-size: 13px; }
+  .prose__contents ul { margin: 0; padding: 0 0 0 16px; list-style: none; }
+  .prose__contents li + li { margin-top: 8px; }
+  .prose__contents a { text-decoration: none; }
+  .prose__contents a:hover { text-decoration: underline; }
+}

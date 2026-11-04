@@ -2,11 +2,12 @@
 // Run with: npm run build && npm run test:site
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync, readdirSync} from 'node:fs';
+import {readFileSync, readdirSync, existsSync} from 'node:fs';
+import {event} from '../src/data/event.ts';
 
 const BASE = process.env.BASE_URL ?? '/';
-// The Faster (swc) minifier drops attribute quotes and optional end tags, and React adds `<!-- -->`
-// between text nodes. Normalise so assertions can match `name="value"`, plain text and `&`.
+// React adds `<!-- -->` between text nodes, and a minifier may drop attribute quotes and optional end tags.
+// Normalise so assertions can match `name="value"`, plain text and `&`.
 // Assertions must not rely on optional end tags such as </p>, </li> or </td>.
 const requote = (tag) =>
   tag.replace(/(\s[\w:-]+)=("[^"]*"|'[^']*'|[^\s"'>]+)/g, (m, name, v) => (v[0] === '"' || v[0] === "'" ? m : `${name}="${v}"`));
@@ -221,16 +222,16 @@ test('navbar logo reads "GeTH Hackathon" on every page', () => {
   }
 });
 
-const builtCss = () =>
-  readdirSync(new URL('../build/assets/css/', import.meta.url))
-    .map((f) => readFileSync(new URL(`../build/assets/css/${f}`, import.meta.url), 'utf8'))
-    .join('');
+const ASSETS = new URL('../build/assets/', import.meta.url);
+const assets = (ext) => readdirSync(ASSETS).filter((f) => f.endsWith(ext));
+const builtCss = () => assets('.css').map((f) => readFileSync(new URL(f, ASSETS), 'utf8')).join('');
 
 test('theme: navbar has a dark/light toggle and light is the default (device setting ignored)', () => {
   const html = read('index.html');
   assert.match(html, /<button[^>]*aria-label="Switch between dark and light mode/);
-  // Docusaurus' inline script: the visitor's stored choice, otherwise light.
-  assert.match(html, /setAttribute\("data-theme",\s*\w+\s*\|\|\s*"light"\)/);
+  assert.match(html, /<html[^>]*data-theme="light"/);
+  // Head script: the visitor's stored choice, otherwise light.
+  assert.match(html, /localStorage\.getItem\('theme'\)[^<]*t==='dark'\?'dark':'light'/);
   assert.doesNotMatch(html, /prefers-color-scheme: ?dark/);
 });
 
@@ -243,9 +244,10 @@ test('theme: dark palette tokens exist in the built CSS', () => {
 });
 
 test('theme: no hard-coded greys left in component CSS (all colours come from tokens)', () => {
-  const css = builtCss().replace(/:root\{[^}]*\}|html\[data-theme=["']?dark["']?\]\{[^}]*\}/g, '');
-  const modules = css.match(/\.[A-Za-z]+_[A-Za-z0-9]{4}[^{]*\{[^}]*\}/g) ?? [];
-  const offenders = modules.filter((rule) => /#(?:555|555555|5a5a5a|1f1f1f|d0d0d0|2a2a2a)\b/i.test(rule));
+  const dir = new URL('../src/', import.meta.url);
+  const modules = readdirSync(dir, {recursive: true}).filter((f) => f.endsWith('.module.css'));
+  assert.ok(modules.length > 5, 'expected the component CSS modules');
+  const offenders = modules.filter((f) => /#(?:555|555555|5a5a5a|1f1f1f|d0d0d0|2a2a2a)\b/i.test(readFileSync(new URL(f, dir), 'utf8')));
   assert.deepEqual(offenders, []);
 });
 
@@ -337,13 +339,12 @@ test('motion: head script gates the hero intro with a 1.5s fail-safe, never bake
   assert.doesNotMatch(html, /style="[^"]*(?:opacity:\s*0|visibility:\s*hidden)/);
 });
 
-test('motion: GSAP is code-split out of the main bundle', () => {
-  const dir = new URL('../build/assets/js/', import.meta.url);
-  const files = readdirSync(dir);
-  const main = files.filter((f) => /^main\.[\w]+\.js$/.test(f));
-  assert.equal(main.length, 1);
-  assert.ok(!readFileSync(new URL(main[0], dir), 'utf8').includes('ScrollTrigger'), 'ScrollTrigger leaked into main.js');
-  assert.ok(files.some((f) => readFileSync(new URL(f, dir), 'utf8').includes('ScrollTrigger')), 'no chunk contains ScrollTrigger');
+test('motion: GSAP is code-split out of the home island', () => {
+  const island = read('index.html').match(/component-url="[^"]*\/assets\/([^"]+\.js)"/)?.[1];
+  assert.ok(island, 'home page has a hydrated island');
+  // The island may name the chunk in its dynamic import(); the library body (scrollerProxy) must stay out.
+  assert.ok(!readFileSync(new URL(island, ASSETS), 'utf8').includes('scrollerProxy'), 'ScrollTrigger leaked into the island entry');
+  assert.ok(assets('.js').some((f) => readFileSync(new URL(f, ASSETS), 'utf8').includes('scrollerProxy')), 'no chunk contains ScrollTrigger');
 });
 
 test('hero: tagline, deadline next to Apply, in-page status link', () => {
@@ -373,4 +374,55 @@ test('road: one timeline, milestones then the three stretches of the week, in or
   pos.forEach((p, i) => assert.ok(p > -1, `missing ${order[i]}`));
   assert.deepEqual([...pos].sort((a, b) => a - b), pos);
   assert.match(road, /<h2 class="slash-heading">.*The road to GeTH Hackathon 2027\.<\/h2>/s);
+});
+
+// Replaces Docusaurus' onBrokenLinks / onBrokenAnchors: every internal link and #anchor must resolve.
+test('links: every internal href points at a built page or file, and every #anchor at an id on that page', () => {
+  const ids = (page) => new Set([...read(page).matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]));
+  for (const page of PAGES) {
+    const here = new URL(`https://site.test${BASE}${page.replace(/index\.html$/, '')}`);
+    for (const [, href] of read(page).matchAll(/<a[^>]*\shref="([^"]*)"/g)) {
+      const u = new URL(href, here);
+      if (u.origin !== here.origin || href.startsWith('mailto:')) continue;
+      const rel = decodeURIComponent(u.pathname.slice(BASE.length));
+      const file = rel === '' || rel.endsWith('/') ? `${rel}index.html` : rel;
+      assert.ok(existsSync(new URL(`../build/${file}`, import.meta.url)), `${page}: ${href} → missing ${file}`);
+      const id = u.hash.slice(1);
+      if (id && id !== 'top') assert.ok(ids(file).has(id), `${page}: ${href} → no #${id} on ${file}`);
+    }
+  }
+});
+
+// Privacy and security by design (docs/security-privacy.md).
+test('privacy: pages load nothing from other origins (no Google Fonts, analytics or embeds)', () => {
+  for (const page of PAGES) {
+    const html = read(page);
+    const loads = [...html.matchAll(/<(?:script|img|iframe|link)[^>]*\s(?:src|href)="(https?:)?\/\/[^"]*"[^>]*>/g)]
+      .map((m) => m[0])
+      .filter((tag) => !/rel="(?:canonical|alternate|sitemap)"/.test(tag));
+    assert.deepEqual(loads, [], page);
+    assert.doesNotMatch(html, /fonts\.googleapis|fonts\.gstatic|googletagmanager|google-analytics/, page);
+  }
+  assert.doesNotMatch(builtCss(), /url\((?:["']?)https?:/, 'CSS loads a remote file');
+});
+
+test('security: every page has a strict CSP: no inline or eval scripts, no inline handlers, same-origin only', () => {
+  for (const page of PAGES) {
+    const csp = read(page).match(/<meta http-equiv="content-security-policy" content="([^"]+)"/)?.[1];
+    assert.ok(csp, `${page}: missing CSP meta`);
+    for (const d of ["default-src 'self'", "connect-src 'self'", "object-src 'none'", "base-uri 'self'", "form-action 'self'", "script-src-attr 'none'"]) {
+      assert.ok(csp.includes(d), `${page}: CSP lacks ${d}`);
+    }
+    const scriptSrc = csp.match(/script-src ([^;]*)/)?.[1] ?? '';
+    assert.doesNotMatch(scriptSrc, /unsafe-inline|unsafe-eval|https?:|\*/, `${page}: script-src too loose`);
+  }
+});
+
+test('privacy: no personal contact details published except the event contact address', () => {
+  for (const page of PAGES) {
+    const text = read(page).replace(/<script[^>]*>[\s\S]*?<\/script>/g, '');
+    const emails = [...new Set(text.match(/[\w.+-]+@[\w-]+\.[\w.]+/g) ?? [])].filter((e) => e !== event.contactEmail);
+    assert.deepEqual(emails, [], page);
+    assert.doesNotMatch(text, /(?:\+66|\b0)[-\s]?\d{1,2}[-\s]?\d{3}[-\s]?\d{4}\b/, `${page}: looks like a phone number`);
+  }
 });

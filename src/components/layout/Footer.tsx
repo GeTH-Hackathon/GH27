@@ -1,7 +1,7 @@
-import Link from '@docusaurus/Link';
+import Link from '@site/src/components/ui/Link';
 import TBA from '@site/src/components/ui/TBA';
 import {event} from '@site/src/data/event';
-import styles from './styles.module.css';
+import styles from './Footer.module.css';
 
 export default function Footer() {
   return (
@@ -37,7 +37,7 @@ export default function Footer() {
         <p className={styles.signoff}>See you at Chiang Mai</p>
         <div className={styles.base}>
           <span className="label">{event.copyright}</span>
-          <a className="label" href="#__docusaurus">/ back to top</a>
+          <a className="label" href="#top">/ back to top</a>
         </div>
       </div>
     </footer>

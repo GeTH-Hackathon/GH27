@@ -32,31 +32,9 @@
   --gutter: 16px;
   --maxw: 1440px;
   --font: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-  --ifm-font-family-base: var(--font);
-  --ifm-heading-font-family: var(--font);
-  --ifm-font-size-base: 17px;
-  --ifm-line-height-base: 1.5;
-  --ifm-background-color: var(--paper);
-  --ifm-font-color-base: var(--ink);
-  --ifm-heading-color: var(--ink);
-  --ifm-link-color: var(--ink);
-  --ifm-link-hover-color: var(--ink);
-  --ifm-color-primary: #303841;
-  --ifm-color-primary-dark: #2b323a;
-  --ifm-color-primary-darker: #282f37;
-  --ifm-color-primary-darkest: #21272d;
-  --ifm-color-primary-light: #353e48;
-  --ifm-color-primary-lighter: #38414b;
-  --ifm-color-primary-lightest: #414b56;
-  --ifm-navbar-background-color: var(--paper);
-  --ifm-navbar-shadow: none;
-  --ifm-navbar-link-color: var(--ink);
-  --ifm-navbar-link-hover-color: var(--ink);
-  --ifm-footer-background-color: var(--footer-bg);
 }
 
-/* Dark theme: same Swiss rules, inverted. html[] beats Infima's own dark selector.
+/* Dark theme: same Swiss rules, inverted.
    The panel sits one step above paper and the footer one step below, so both still read as surfaces. */
 html[data-theme='dark'] {
   --accent-text: #ff6a3d;
@@ -75,24 +53,6 @@ html[data-theme='dark'] {
   --footer-edge: #333b44;
   --group-infectious: #8a97a3;
   --group-other: #5e6873;
-
-  --ifm-background-color: var(--paper);
-  --ifm-background-surface-color: var(--paper);
-  --ifm-font-color-base: var(--ink);
-  --ifm-heading-color: var(--ink);
-  --ifm-link-color: var(--ink);
-  --ifm-link-hover-color: var(--ink);
-  --ifm-color-primary: #eef0f2;
-  --ifm-color-primary-dark: #d6dade;
-  --ifm-color-primary-darker: #cad0d5;
-  --ifm-color-primary-darkest: #a6b0b9;
-  --ifm-color-primary-light: #f1f3f4;
-  --ifm-color-primary-lighter: #f3f4f5;
-  --ifm-color-primary-lightest: #f8f9fa;
-  --ifm-navbar-background-color: var(--paper);
-  --ifm-navbar-link-color: var(--ink);
-  --ifm-navbar-link-hover-color: var(--ink);
-  --ifm-table-stripe-background: transparent;
 }
 
 @media (min-width: 997px) {

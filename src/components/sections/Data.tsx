@@ -1,5 +1,5 @@
 import {useRef} from 'react';
-import Link from '@docusaurus/Link';
+import Link from '@site/src/components/ui/Link';
 import {useAnchor} from '@site/src/lib/useAnchor';
 import SlashHeading from '@site/src/components/ui/SlashHeading';
 import wgs from '@site/src/data/wgs.json';
